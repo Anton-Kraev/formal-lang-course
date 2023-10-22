@@ -1,15 +1,21 @@
+import os
 from pyformlang.cfg import CFG, Terminal, Production
 from project.utils import cfg_utils
 
 
+current_dir_path = os.path.dirname(os.path.realpath(__file__))
+
+
 def test_read_empty_cfg():
-    empty = cfg_utils.read_cfg("resources/empty.txt")
+    path = os.path.join(current_dir_path, "resources/empty.txt")
+    empty = cfg_utils.read_cfg(path)
 
     assert empty.is_empty()
 
 
 def test_read_cfg():
-    cfg = cfg_utils.read_cfg("resources/cfg_for_read.txt", "A")
+    path = os.path.join(current_dir_path, "resources/cfg_for_read.txt")
+    cfg = cfg_utils.read_cfg(path, "A")
 
     assert cfg.start_symbol == "A"
     assert cfg.productions == {
@@ -31,7 +37,8 @@ def test_read_cfg():
 
 
 def test_already_in_cnf():
-    cnf = cfg_utils.read_cfg("resources/cfg_cnf.txt")
+    path = os.path.join(current_dir_path, "resources/cfg_cnf.txt")
+    cnf = cfg_utils.read_cfg(path)
     cnf_transformed = cfg_utils.cfg_to_wcnf(cnf)
 
     assert cnf.start_symbol == cnf_transformed.start_symbol
@@ -39,7 +46,8 @@ def test_already_in_cnf():
 
 
 def test_already_in_wcnf():
-    wcnf = cfg_utils.read_cfg("resources/cfg_wcnf.txt")
+    path = os.path.join(current_dir_path, "resources/cfg_wcnf.txt")
+    wcnf = cfg_utils.read_cfg(path)
     wcnf_transformed = cfg_utils.cfg_to_wcnf(wcnf)
 
     assert wcnf.start_symbol == wcnf_transformed.start_symbol
