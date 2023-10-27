@@ -1,6 +1,6 @@
 from typing import List
 from pyformlang.finite_automaton import Symbol
-from project.utils.finite_automata_construct import graph_to_nfa
+from project.regular.finite_automata_construct import graph_to_nfa
 import cfpq_data
 import pytest
 

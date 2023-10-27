@@ -1,7 +1,7 @@
 import pytest
 import cfpq_data
 from networkx import MultiDiGraph
-from project.rpq import rpq_tensors, rpq_bfs
+from project.regular.rpq import rpq_tensors, rpq_bfs
 
 
 def test_empty():
