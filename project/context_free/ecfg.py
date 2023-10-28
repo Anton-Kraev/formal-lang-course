@@ -25,12 +25,10 @@ class ECFG:
         terminals = set(cfg.terminals or [])
 
         productions: Dict[Variable, Regex] = {}
-        if cfg.productions:
-            for head, body in cfg.productions:
-                prev_body = productions.get(head)
-                curr_body = Regex(" ".join([el.value for el in body]))
-                productions[head] = (
-                    prev_body.union(curr_body) if prev_body else curr_body
-                )
+        for pr in cfg.productions:
+            head, body = pr.head, pr.body
+            prev_body = productions.get(head)
+            curr_body = Regex(".".join([el.value for el in body]) or "$")
+            productions[head] = prev_body.union(curr_body) if prev_body else curr_body
 
         return ECFG(start_symbol, variables, terminals, productions)

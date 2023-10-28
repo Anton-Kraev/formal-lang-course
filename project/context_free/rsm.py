@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Dict
 from pyformlang.finite_automaton import Symbol, EpsilonNFA
-from ecfg import ECFG
+from project.context_free.ecfg import ECFG
 
 
 class RSM:
