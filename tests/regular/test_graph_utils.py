@@ -25,7 +25,7 @@ def test_get_graph_info():
 def test_save_two_cycles_graph_in_dot():
     current_dir_path = os.path.dirname(os.path.realpath(__file__))
     expected_path = os.path.join(current_dir_path, "../resources/expected.dot")
-    actual_path = os.path.join(current_dir_path, "resources/actual.dot")
+    actual_path = os.path.join(current_dir_path, "../resources/actual.dot")
 
     graph_utils.save_two_cycles_graph_in_dot(10, 20, ("first", "second"), actual_path)
 
