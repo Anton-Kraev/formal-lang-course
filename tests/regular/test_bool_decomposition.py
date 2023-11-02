@@ -1,7 +1,7 @@
 from typing import Set, Tuple
 from pyformlang.finite_automaton import State, Symbol, NondeterministicFiniteAutomaton
 from scipy.sparse import dok_matrix
-from project.utils.bool_decomposition import BoolDecompositionOfFA
+from project.regular.bool_decomposition import BoolDecompositionOfFA
 
 
 def create_automaton(

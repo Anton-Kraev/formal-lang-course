@@ -1,8 +1,8 @@
 from typing import Set, Tuple, List, Dict, Union
 from networkx import MultiDiGraph
 from pyformlang.finite_automaton import State
-from project.utils.bool_decomposition import BoolDecompositionOfFA
-from project.utils.finite_automata_construct import graph_to_nfa, regex_to_min_dfa
+from project.regular.bool_decomposition import BoolDecompositionOfFA
+from project.regular.finite_automata_construct import graph_to_nfa, regex_to_min_dfa
 
 
 def rpq_tensors(
