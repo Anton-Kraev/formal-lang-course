@@ -24,7 +24,8 @@ def matrix_algo(graph: MultiDiGraph, cfg: CFG) -> Set[Tuple[str, int, int]]:
 
     for start, final, label in graph.edges(data="label"):
         for var, term in term_prods:
-            matrices[var][start, final] = term[0].value == label
+            if term[0].value == label:
+                matrices[var][start, final] = True
     for var in eps_prods:
         matrices[var].setdiag(True)
 
@@ -39,6 +40,6 @@ def matrix_algo(graph: MultiDiGraph, cfg: CFG) -> Set[Tuple[str, int, int]]:
 
     return {
         (var, start, final)
-        for var in matrices.keys()
-        for start, final in zip(*matrices[var].nonzero())
+        for var, matrix in matrices.items()
+        for start, final in zip(*matrix.nonzero())
     }
