@@ -7,6 +7,8 @@ from pyformlang.cfg import Variable, CFG
 
 from project.context_free.cfg_utils import read_cfg
 from project.context_free.cfpq import cfpq
+from project.context_free.hellings import hellings_algo
+from project.context_free.matrix import matrix_algo
 
 current_dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -94,6 +96,25 @@ def final_nodes():
 
 def test_hellings(graph, cfg, start_nodes, final_nodes, expected_pair):
     assert (
-        cfpq(graph, cfg, start_nodes=start_nodes, final_nodes=final_nodes)
+        cfpq(
+            graph,
+            cfg,
+            start_nodes=start_nodes,
+            final_nodes=final_nodes,
+            cfpq_algo=hellings_algo,
+        )
+        == expected_pair
+    )
+
+
+def test_matrix(graph, cfg, start_nodes, final_nodes, expected_pair):
+    assert (
+        cfpq(
+            graph,
+            cfg,
+            start_nodes=start_nodes,
+            final_nodes=final_nodes,
+            cfpq_algo=matrix_algo,
+        )
         == expected_pair
     )
