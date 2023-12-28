@@ -38,6 +38,13 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+      # Setup Java for antlr
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+
       # Install requirements
       - name: Install requirements
 
