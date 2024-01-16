@@ -1,0 +1,200 @@
+{
+  "test_check": [
+    {
+      "input": "",
+      "is_ok": true
+    },
+    {
+      "input": "set x = y\n",
+      "is_ok": true
+    },
+    {
+      "input": "set x = Y\n",
+      "is_ok": true
+    },
+    {
+      "input": "set x = _1y\n",
+      "is_ok": true
+    },
+    {
+      "input": "set x = some_vArIabLe123\n",
+      "is_ok": true
+    },
+    {
+      "input": "set x = 101\n",
+      "is_ok": true
+    },
+    {
+      "input": "set x = 0\n",
+      "is_ok": true
+    },
+    {
+      "input": "set x = -1035345435\n",
+      "is_ok": true
+    },
+    {
+      "input": "set x = true\n",
+      "is_ok": true
+    },
+    {
+      "input": "set x = g with starts := {1,2,3}\n",
+      "is_ok": true
+    },
+    {
+      "input": "set x = with starts := {}\n",
+      "is_ok": false
+    },
+    {
+      "input": "set x = g with starts {1,2,3}\n",
+      "is_ok": false
+    },
+    {
+      "input": "set x = g with finals += {1,2,3}\n",
+      "is_ok": true
+    },
+    {
+      "input": "set x = starts of (g)\n",
+      "is_ok": true
+    },
+    {
+      "input": "set x = starts of g\n",
+      "is_ok": false
+    },
+    {
+      "input": "set x = g.finals\n",
+      "is_ok": false
+    },
+    {
+      "input": "set x = reachable of (g)\n",
+      "is_ok": true
+    },
+    {
+      "input": "set x = vertices of (g)\n",
+      "is_ok": true
+    },
+    {
+      "input": "set x = nodes of (g)\n",
+      "is_ok": false
+    },
+    {
+      "input": "set x = map (fun v -> 1) over (g)\n",
+      "is_ok": true
+    },
+    {
+      "input": "set x = map (fun v -> 1)\n",
+      "is_ok": false
+    },
+    {
+      "input": "set x = map (fun v -> 1) over (g)\n",
+      "is_ok": true
+    },
+    {
+      "input": "set x = filter (fun v -> false) from ({1,2,3})\n",
+      "is_ok": false
+    },
+    {
+      "input": "set x = filter (fun v -> false) (graph)\n",
+      "is_ok": false
+    },
+    {
+      "input": "set x = load \"graph.txt\"\n",
+      "is_ok": true
+    },
+    {
+      "input": "set x = load(graph)\n",
+      "is_ok": false
+    },
+    {
+      "input": "set x = a && b\n",
+      "is_ok": true
+    },
+    {
+      "input": "set x = a & b\n",
+      "is_ok": false
+    },
+    {
+      "input": "set x = a &\n",
+      "is_ok": false
+    },
+    {
+      "input": "set x = a .. b || c\n",
+      "is_ok": true
+    },
+    {
+      "input": "set x = (b)*\n",
+      "is_ok": true
+    },
+    {
+      "input": "set x = #(g)\n",
+      "is_ok": true
+    },
+    {
+      "input": "set x = a*b\n",
+      "is_ok": false
+    },
+    {
+      "input": "set x = {}\n",
+      "is_ok": false
+    },
+    {
+      "input": "set x = {1}\n",
+      "is_ok": false
+    },
+    {
+      "input": "set x = {1,}\n",
+      "is_ok": false
+    },
+    {
+      "input": "set x = {1 2 3}\n",
+      "is_ok": false
+    },
+    {
+      "input": "set x = (a,b)\n",
+      "is_ok": true
+    },
+    {
+      "input": "set x = (a,b,c)\n",
+      "is_ok": true
+    },
+    {
+      "input": "set x = (a,())\n",
+      "is_ok": false
+    },
+    {
+      "input": "set x = (a,(b,c),d)\n",
+      "is_ok": true
+    },
+    {
+      "input": "set x = (_,_,x)\n",
+      "is_ok": true
+    },
+    {
+      "input": "set x = map (fun _ -> 1) over {}\n",
+      "is_ok": false
+    },
+    {
+      "input": "set x = map (fun (v1,l,v2) -> (v1,v2)) over (edges of (g))\n",
+      "is_ok": true
+    },
+    {
+      "input": "set x = filter (fun l -> l) from (labels of (g1 && g2))\n",
+      "is_ok": true
+    },
+    {
+      "input": "print vertices of (g)\n",
+      "is_ok": true
+    },
+    {
+      "input": "print\n",
+      "is_ok": false
+    },
+    {
+      "input": "print (1,2,3)\n",
+      "is_ok": false
+    },
+    {
+      "input": "print 1\nprint 2\n",
+      "is_ok": true
+    }
+  ]
+}
